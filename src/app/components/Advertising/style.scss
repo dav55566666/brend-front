@@ -1,0 +1,33 @@
+.advertising { 
+    width: 100%;
+    padding: 36px 20px;
+	.advertising__container { 
+        width: 100%;
+        padding: 14px;
+        border-radius: 8px;
+        background: #F9F9F9;
+        position: relative;
+        @media(max-width: $md3) {
+            padding-right: 48px;
+        }
+		p { 
+            color: #D70000;
+            font-family: Roboto;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-align: center;
+            @media(max-width: $md3) {
+                text-align: left;
+                font-size: 14px;
+            }
+		}
+
+		button { 
+            position: absolute;
+            right: 14px;
+            top: 14px;
+		}
+	}
+}

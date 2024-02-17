@@ -1,0 +1,23 @@
+.liked { 
+    width: 100%;
+    padding: 20px 20px 60px;
+	.liked__container { 
+		h1 { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%; /* 33.6px */
+            letter-spacing: 0.56px;
+            margin-bottom: 34px;
+		}
+
+		.liked__grid { 
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 20px 16px;
+		}
+	}
+}

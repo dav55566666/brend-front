@@ -1,0 +1,35 @@
+{
+  "name": "brendinstrument",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.1.0",
+    "@testing-library/jest-dom": "^6.4.1",
+    "@testing-library/react": "^14.2.1",
+    "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.6.1",
+    "html-react-parser": "^5.1.5",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-loader-spinner": "^6.1.6",
+    "react-redux": "^9.1.0",
+    "react-redux-provider-consumer": "^1.1.0",
+    "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
+    "swiper": "^11.0.5",
+    "web-vitals": "^3.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.16",
+    "@types/react": "18.2.52",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0"
+  }
+}

@@ -1,0 +1,175 @@
+.basket__products { 
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #EDEDED;
+    background: #FCFCFC;
+    margin-bottom: 46px;
+    .basket__products-title { 
+        width: 100%;
+        background: #0C96D1;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        p { 
+            padding: 18px 16px;
+            color: #FFF;
+            font-family: Roboto;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: capitalize;
+            text-align: center;
+            width: 100%;
+            max-width: 80px;
+            height: auto;
+            &:nth-child(2) {max-width: 154px;}
+            &:nth-child(3) {max-width: 326px;}
+            &:nth-child(4) {max-width: 202px;}
+            &:nth-child(5) {max-width: 186px;}
+            &:nth-child(6) {max-width: 218px;}
+            &:nth-child(7) {max-width: 132px;}
+        }
+    }
+
+    .basket__item { 
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        border-bottom: 1px solid #EDEDED;
+        p { 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 80px;
+            width: 100%;
+            color: #333;
+            font-family: Roboto;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.9px;
+            text-transform: capitalize;
+            border-right: 1px solid #EDEDED;
+        }
+
+        .basket__item-img { 
+            width: 100%;
+            max-width: 154px;
+            border-right: 1px solid #EDEDED;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img { 
+                max-width: 94px;
+                width: 100%;
+                height: 94px;
+                object-fit: cover;
+                border-radius: 3px;
+            }
+        }
+
+        h4 { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: capitalize;
+            max-width: 326px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 28px 20px;
+            border-right: 1px solid #EDEDED;
+        }
+
+        .price { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+            width: 100%;
+            max-width: 202px;
+            border-right: 1px solid #EDEDED;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .counter { 
+            width: 100%;
+            max-width: 186px;
+            border-right: 1px solid #EDEDED;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .counter-flex { 
+                width: 100%;
+                max-width: 126px;
+                height: 44px;
+                padding: 8px 12px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 4px;
+                border-radius: 10px;
+                background: #F3F4F5;
+
+                span { 
+                    color: #3F3F3F;
+                    font-family: Roboto;
+                    font-size: 17px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    letter-spacing: 0.17px;
+                    text-align: center;
+                    text-transform: capitalize;
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+
+        .total-price { 
+            width: 100%;
+            max-width: 218px;
+            border-right: 1px solid #EDEDED;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            font-family: Roboto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-transform: capitalize;
+        }
+
+        .remove-btn {   
+            width: 100%;
+            max-width: 132px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg { 
+
+                path { 
+
+                }
+            }
+        }
+    }
+}

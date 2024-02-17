@@ -1,0 +1,31 @@
+.brendcrumbs { 
+    width: 100%;
+    padding: 24px 20px;
+	.brendcrumbs__container { 
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+		a { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            letter-spacing: 0.14px;
+            text-decoration-line: underline;
+            text-transform: capitalize;
+		}
+        
+		p { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.14px;
+		}
+	}
+}

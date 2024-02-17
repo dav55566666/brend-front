@@ -1,0 +1,49 @@
+.buying-up { 
+    width: 100%;
+    padding: 50px 20px;
+    background: #FCFCFC;
+	.buying-up__container { 
+		.buying-up__subtitle { 
+            color: rgba(51, 51, 51, 0.60);
+            font-family: Roboto;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            letter-spacing: 0.7px;
+            margin-bottom: 12px;
+		}
+
+		.section-title { 
+            margin-bottom: 60px;
+		}
+
+		.buying-up__flex { 
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+			.buying-up__item { 
+                width: 100%;
+                max-width: 266px;
+				.icon { 
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 20px;
+				}
+
+				p { 
+                    color: #333;
+                    font-family: Roboto;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    text-align: center;
+				}
+			}
+		}
+	}
+}
