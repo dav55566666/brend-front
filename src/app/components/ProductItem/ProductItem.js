@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
-function ProductItem({ title, img, price, salePrice, id }) {
+function  ProductItem({ title, img, price, salePrice, id }) {
     
     return (
         <div className="product-item">

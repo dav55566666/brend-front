@@ -6,6 +6,8 @@ import { productsReducer } from "./slices/products/productsSlice"
 import { brendsReducer } from "./slices/brends/brendsSlice"
 import { usersReducer } from "./slices/users/usersSlice"
 import { bannersReducer } from "./slices/banners/bannersSlice"
+import { searchReducer } from "./slices/search/searchSlice"
+import { cartReducer } from "./slices/cart/cartSlice"
 
 const rootReducers = combineReducers({
     category: categoryReducer,
@@ -13,7 +15,9 @@ const rootReducers = combineReducers({
     products: productsReducer,
     brends: brendsReducer,
     users: usersReducer,
-    banners: bannersReducer
+    banners: bannersReducer,
+    search: searchReducer,
+    cart: cartReducer
 })
 
 export default configureStore({

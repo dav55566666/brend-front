@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseLink } from "../../../layout";
 
 export const fetchProductsByTag = createAsyncThunk(
     "products/fetchProductsByTag",
@@ -8,7 +9,7 @@ export const fetchProductsByTag = createAsyncThunk(
         tagsId.push(
             ...payload.tags.map(el => el.id)
             )
-        const {data: productsByTagData} = await axios.post("http://brand.speedshop.am/api/productsByTeg/"+payload.limit+"", {ids: [1, 2, 3]})
+        const {data: productsByTagData} = await axios.post(`${baseLink}/api/productsByTeg/${payload.limit}`, {ids: [1, 2, 3], headers: {"Content-Type": "application/json"}})
         
         return productsByTagData;
     }
@@ -17,7 +18,7 @@ export const fetchProductsByTag = createAsyncThunk(
 export const fetchSingleProduct = createAsyncThunk(
     "products/fetchSingleProduct", 
     async function ({id}) {
-        const {data: productSinglData} = await axios.get(`http://brand.speedshop.am/api/singleProduct/${id}`)
+        const {data: productSinglData} = await axios.get(`${baseLink}/api/singleProduct/${id}`, {headers: {"Content-Type": "application/json"}})
         return productSinglData
     }
 )

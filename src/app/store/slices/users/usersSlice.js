@@ -11,6 +11,7 @@ const usersSlice = createSlice({
     reducers: {
         logIn(state, { payload }) {
             state.loginData = { ...payload };
+            console.log(payload);
         },
     },
     extraReducers: (builder) => {

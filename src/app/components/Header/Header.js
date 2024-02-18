@@ -5,26 +5,27 @@ import { ArrowDown, BasketIcon, BurgerIcon, ComprasionIcon, InfoIcon, LikeIcon, 
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUsers } from '../../store/slices/users/usersSlice';
-import axios from 'axios';
 import { selectCategory } from '../../store/slices/category/categorySlice';
 import { fetchCategory } from '../../store/slices/category/categoryApi';
+import { fetchSearch } from "../../store/slices/search/searchApi"
+import { selectSearch } from '../../store/slices/search/searchSlice';
 
 function Header() {
     const dispatch = useDispatch()
-
-    const [abautLinksToggle, setAbautLinksToggle] = useState(false)
-
-    const [infoLinksToggle, setInfoLinksToggle] = useState(false)
-
-    const [toggleCatalog, setToggleCatalog] = useState(false)
 
     const { usersData } = useSelector(selectUsers)
 
     const { categoryData } = useSelector(selectCategory)
 
+    const { searchProductsData } = useSelector(selectSearch)
+
     const searchRef = useRef(null)
 
-    useEffect(() => {console.log(usersData);}, [usersData])
+    const [headerToggles, setHeaderToggles] = useState(null)
+
+    useEffect(() => {}, [usersData])
+
+    useEffect(() => {}, [searchProductsData])
 
     useEffect(() => {
         if (!categoryData.length) {
@@ -32,8 +33,13 @@ function Header() {
         }
     }, [])
 
-    const searchSubmit = () => {
+    const headerToggleClick = (value) => {
+        setHeaderToggles(value)
+    }
 
+    const searchSubmit = (e) => {
+        e.preventDefault()
+        dispatch(fetchSearch({value: searchRef.current[0].value}))
     }
 
     return (
@@ -42,12 +48,12 @@ function Header() {
                 <div className="header__container _container">
                     <div className="header__nav">
                         <div className="header__dropdown">
-                            <div className="header__dropdown-title" onClick={() => { setAbautLinksToggle(!abautLinksToggle); setInfoLinksToggle(false); setToggleCatalog(false) }}>
+                            <div className="header__dropdown-title" onClick={() => headerToggleClick(headerToggles ? null : "abautLinks")}>
                                 <span>О компании</span>
-                                <ArrowDown active={abautLinksToggle} color={"#3B3B3B"} />
+                                <ArrowDown active={headerToggles === "abautLinks" ? true : false} color={"#3B3B3B"} />
                             </div>
                             {
-                                abautLinksToggle &&
+                                headerToggles === "abautLinks" &&
                                 <div className="header__dropdown-hide">
                                     <ul>
                                         <li><Link href="/">История компании</Link></li>
@@ -60,13 +66,13 @@ function Header() {
                             }
                         </div>
                         <div className="header__dropdown info-dropdown">
-                            <div className="header__dropdown-title" onClick={() => { setInfoLinksToggle(!infoLinksToggle); setAbautLinksToggle(false); setToggleCatalog(false) }}>
+                            <div className="header__dropdown-title" onClick={() => headerToggleClick(headerToggles ? null : "infoLinks")}>
                                 <InfoIcon color={"#D70000"} />
                                 <span>Информация</span>
-                                <ArrowDown active={infoLinksToggle} color={"#D70000"} />
+                                <ArrowDown active={headerToggles === "infoLinks" ? true : false} color={"#D70000"} />
                             </div>
                             {
-                                infoLinksToggle &&
+                                headerToggles === "infoLinks" &&
                                 <div className="header__dropdown-hide">
                                     <ul>
                                         <li><Link href="/">Скупка/продажа</Link></li>
@@ -101,27 +107,23 @@ function Header() {
                 <div className="header__container _container">
                     <div className="header__left">
                         <Link href="/" className="logo"><Image src="/img/logo.svg" alt={'asd'} width={172} height={70} /></Link>
-                        <button className="catalog-btn" onClick={() => {
-                            setToggleCatalog(!toggleCatalog)
-                            setAbautLinksToggle(false)
-                            setInfoLinksToggle(false)
-                        }}>
+                        <button className="catalog-btn" onClick={() => headerToggleClick(headerToggles ? null : "catalogLinks")}>
                             <BurgerIcon />
                             Каталог
                         </button>
                         {
-                            toggleCatalog && (
+                            headerToggles === "catalogLinks" && (
                                 <div className='hide-catalog'>
                                     <ul className='hide-catalog__grid'>
                                         {
                                             categoryData?.map(category => (
                                                 <li key={category.id}>
-                                                    <Link href={{ pathname: `/category/categorySingl`, query: { categoryId: category.id } }} className='category-title' onClick={() => setToggleCatalog(false)}>{category.title}</Link>
+                                                    <Link href={{ pathname: `/category/categorySingl`, query: { categoryId: category.id } }} className='category-title' onClick={() => headerToggleClick(false)}>{category.title}</Link>
                                                     <ul>
                                                         {
                                                             category.children?.map(el => (
                                                                 <li key={el.id}>
-                                                                    <Link href={{ pathname: `/category/categorySingl`, query: { categoryId: el.id } }} onClick={() => setToggleCatalog(false)}>{el.title}</Link>
+                                                                    <Link href={{ pathname: `/category/categorySingl`, query: { categoryId: el.id } }} onClick={() => headerToggleClick(false)}>{el.title}</Link>
                                                                 </li>
                                                             ))
                                                         }
@@ -135,18 +137,18 @@ function Header() {
                         }
                     </div>
                     <div className="header__search">
-                        <form ref={searchRef} onSubmit={() => searchSubmit()}>
+                        <form ref={searchRef} onSubmit={searchSubmit}>
                             <label htmlFor={'asd'} className="input-text" >
-                                <input type="text" placeholder="Поиск по товарам..." onInput={() => {
-                                    let send = 0
-                                    const sendForm = setTimeout(() => {
-                                        send = 1
-                                    }, 2000)
-                                    if(send === 1) {
-                                        send = 0
-                                        console.log("send");
-                                        clearInterval(sendForm)
-                                        return
+                                <input type="text" placeholder="Поиск по товарам..." onFocus={(e) => {
+                                    headerToggleClick(headerToggles ? null : "searchToggle")
+                                    if(!e.target.value.split("").length) {
+                                        headerToggleClick(null)
+                                    }
+                                } } onInput={(e) => {
+                                    searchSubmit(e)
+                                    headerToggleClick(headerToggles ? null : "searchToggle")
+                                    if(!e.target.value.split("").length) {
+                                        headerToggleClick(null)
                                     }
                                 }} />
                             </label>
@@ -155,6 +157,25 @@ function Header() {
                                 <input type="submit" defaultValue={'asd'} />
                             </label>
                         </form>
+                        {
+                            headerToggles === "searchToggle" &&
+                            <div className='header__search-result'>
+                                <div className='header__search-scroll'>
+                                    {
+                                        searchProductsData?.map(el => (
+                                            <div key={el.id} className='header__search-item'>
+                                                <Link href={{pathname: `/product`, query: {productId: el.id}}} className='img' onClick={() => headerToggleClick(false)}>
+                                                    <img src={el.image} alt={el.title} />
+                                                </Link>
+                                                <h4>
+                                                    <Link href={{pathname: `/product`, query: {productId: el.id}}} onClick={() => headerToggleClick(false)}>{el.title}</Link>
+                                                </h4>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        }
                     </div>
                     <div className="header__user">
                         <Link href={usersData.name ? "/liked/" : "/login/"}>
@@ -162,7 +183,7 @@ function Header() {
                             Избранное
                             <span>0</span>
                         </Link>
-                        <Link href="basket.html">
+                        <Link href={usersData.name ? "/basket/" : "/login/"}>
                             <BasketIcon />
                             Корзина
                             <span>0</span>

@@ -1,12 +1,13 @@
 "use client";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseLink } from "../../../layout";
 
 export const fetchCategory = createAsyncThunk(
     "category/fetchCategory",
     async function () {
         const categoryData = [] 
-        await axios.get("http://brand.speedshop.am/api/category/").then(res => {
+        await axios.get(`${baseLink}/api/category/`, {headers: {"Content-Type": "application/json"}}).then(res => {
             categoryData.push(...res.data)
         })
         return categoryData
@@ -17,7 +18,7 @@ export const fetchTopCategory = createAsyncThunk(
     "category/fetchTopCategory",
     async function (payload) {
         const topCategoryData = [] 
-        await axios.get("http://brand.speedshop.am/api/top-category/"+payload.limit+"").then(res => {
+        await axios.get(`${baseLink}/api/top-category/${payload.limit}`, {headers: {"Content-Type": "application/json"}}).then(res => {
             topCategoryData.push(
                 ...res.data.map(el => ({
                     ...el,
@@ -33,7 +34,7 @@ export const fetchSingleCategory = createAsyncThunk(
     "category/fetchSingleCategory",
     async function ({categoryId, limit}) {
         let singleCategoryData = {}
-        await axios.get(`http://brand.speedshop.am/api/singleCat/${categoryId}/${limit}`).then(res => {
+        await axios.get(`${baseLink}/api/singleCat/${categoryId}/${limit}`, {headers: {"Content-Type": "application/json"}}).then(res => {
             singleCategoryData = {
                 attributes: [
                     ...res.data.attributes.map(el => ({
@@ -65,7 +66,6 @@ export const fetchSingleCategory = createAsyncThunk(
                 top: res.data.top,
                 updated_at: res.data.updated_at
             }
-            console.log(singleCategoryData);
         })
         return singleCategoryData
     }

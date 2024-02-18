@@ -16,7 +16,7 @@ const TopCategory = () => {
 
   useLayoutEffect(() => {
     if (!topCategoryData.length) {
-      dispatch(fetchTopCategory({limit: 20}))
+      // dispatch(fetchTopCategory({limit: 20}))
     }
   }, [topCategoryData])
   const prevSlide = useCallback(() => {
