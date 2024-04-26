@@ -1,0 +1,83 @@
+.myroom-menu { 
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #EDEDED;
+    background: #FCFCFC;
+    padding-right: 0;
+    .myroom-menu__button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        padding-right: 20px;
+        a {
+            width: 100%;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            background: #0C96D1;
+            color: #FFF;
+            font-family: Roboto;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            border: unset;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+	.myroom-menu__item { 
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 18px;
+        padding: 10px;
+        border-radius: 17px 0px 0px 17px;
+        transition: all 0.5s;
+        position: relative;
+        color: #333;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 0.32px;
+        span {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            background: #0C96D1;
+            min-width: 40px;
+        }
+        &::before {
+            content: "";
+            width: 4px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-radius: 10px;
+            background: #0C96D1;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        &.active {
+            background: #F3F4F5;
+            &::before {
+                opacity: 1;
+            }
+        }
+        &:hover {
+            &::before {
+                opacity: 1;
+            }
+        }
+	}
+}

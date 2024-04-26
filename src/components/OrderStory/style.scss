@@ -1,0 +1,60 @@
+.order-story { 
+    width: 100%;
+    padding: 20px 20px 60px;
+	.order-story__container { 
+		h1 { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%; /* 33.6px */
+            letter-spacing: 0.56px;
+            margin-bottom: 36px;
+		}
+
+		.order-story__flex { 
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            @media(max-width: $md3) {
+                flex-direction: column;
+            }
+            .myroom-menu {
+                max-width: 390px;
+                @media(max-width: $md3) {
+                    max-width: unset;
+                }
+            }
+
+			.order-story__right { 
+                width: 100%;
+                max-width: 852px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 36px;
+
+                h2 {
+                    color: #333;
+                    font-family: Roboto;
+                    font-size: 26px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 120%; /* 31.2px */
+                    letter-spacing: 0.52px;
+                }
+
+                .order-story__box {
+                    width: 100%;
+                    @media(max-width: $md3) {
+                        overflow: auto;
+                    }
+                }
+			}
+		}
+	}
+}

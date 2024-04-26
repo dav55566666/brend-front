@@ -1,0 +1,80 @@
+.brands { 
+    width: 100%;
+    padding: 10px 20px;
+	.brands__container { 
+		.section-title { 
+            margin-bottom: 30px;
+		}
+
+		.brands__swiper { 
+            width: 100%;
+            position: relative;
+            .slideprev, .slidenext { 
+                position: absolute;
+                left: -15px;
+                top: 35%;
+                transform: translateY(-50%);
+                border-radius: 30px;
+                background: rgba(255, 255, 255, 0.27);
+                box-shadow: 0px 4px 10px 0px rgba(153, 153, 153, 0.20);
+                z-index: 3;
+            }
+            .slidenext {
+                left: unset;
+                right: -15px;
+            }
+
+			.swiper { 
+                width: 100%;
+                z-index: 2;
+                margin-bottom: 30px;
+				.swiper-wrapper { 
+					.swiper-slide { 
+                        width: 100%;
+                        max-width: 204px;
+                        height: 130px;
+                        border-radius: 10px;
+                        border: 1px solid rgba(230, 230, 230, 0.50);
+                        background: #FFF;
+                        box-shadow: 0px 7px 29px 0px rgba(197, 197, 197, 0.10);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        margin-right: 14px;
+						img { 
+                            width: 100%;
+                            max-width: 176px;
+                            height: 78px;
+                            object-fit: scale-down;
+                            object-position: center;
+						}
+					}
+				}
+			}
+
+			.swiper-pagination { 
+                position: relative;
+                inset: unset;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin: 0 auto;
+                .swiper-pagination-bullet {
+                    transform: unset!important;
+                    width: 10px;
+                    height: 10px;
+                    opacity: 1;
+                    display: block;
+                    min-width: 10px;
+                    border-radius: 50%;
+                    background: rgba(191, 191, 191, 0.30);
+                }
+                .swiper-pagination-bullet-active {
+                    background-color: #6C6C6C;
+                }
+			}
+		}
+	}
+}

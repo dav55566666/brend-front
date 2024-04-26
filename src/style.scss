@@ -1,0 +1,662 @@
+@use "sass:math";
+//<МИКСИНЫ>===============================================================================================
+
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+//&display=swap&subset=cyrillic-ext
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+//@import "icons";
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontFamily: "sans-serif";
+$fontSize: 16;
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>==========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+$md1: 1300px;
+$md2: 1024px;
+$md3: 768px;
+$md4: 520px;
+
+$mainColor: #000;
+$mainBackground: #fff;
+
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	outline: none!important;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	// outline: none;
+}
+a:focus,
+a:active {
+	// outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+	display: block;
+}
+html {
+	font-size: #{$fontSize + px};
+}
+html,
+body {
+	height: 100%;
+	min-width: $minWidth;
+}
+body {
+	line-height: 1;
+	font-family: $fontFamily;
+	//text-rendering: optimizeLegibility;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+	font-family: $fontFamily;
+	font-size: inherit;
+}
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+	background-color: inherit;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+//-webkit-overflow-scrolling: touch;
+/*
+&::-webkit-scrollbar {
+	display: none;
+}
+*/
+
+body {
+	color: $mainColor;
+	font-size: $fontSize + px;
+	font-family: $fontFamily;
+	background-color: $mainBackground;
+	// background-size: cover;
+	// background-repeat: no-repeat;
+	&._lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	&._loaded {
+	}
+}
+
+._container {
+	width: 100%;
+	max-width: 1300px;
+	margin: 0 auto;
+}
+
+.section-title { 
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 26px;
+	h2 { 
+		color: #333;
+		font-family: Roboto;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		@media(max-width: $md3) {
+			font-size: 18px;
+		}
+	}
+
+	a { 
+		color: rgba(51, 51, 51, 0.80);
+		font-family: Roboto;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		text-decoration-line: underline;
+		@media(max-width: $md3) {
+			display: none;
+		}
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ГОТОВЫЕ КЛАССЫ>====================================================================================================
+.row:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+.rub:after {
+	content: "₽";
+}
+//====================================================================================================
+%noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+//====================================================================================================
+ol.counter {
+	list-style-type: none;
+	counter-reset: item;
+	li {
+		position: relative;
+		padding: 0px 0px 0px 45px;
+		&:before {
+			counter-increment: item;
+			content: counter(item);
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: #818181;
+			font-size: 14px;
+			font-weight: 700;
+			text-align: center;
+			line-height: 26px;
+			border-radius: 50%;
+			width: 28px;
+			height: 28px;
+			border: 1px solid #4274bb;
+		}
+	}
+}
+//====================================================================================================
+.ellipsis {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.es {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+//====================================================================================================
+.table {
+	display: table;
+	font-size: 0;
+	width: 100%;
+	//table-layout: fixed;
+}
+.trow {
+	display: table-row;
+}
+.cell {
+	display: table-cell;
+	&.full {
+		width: 100%;
+	}
+}
+//====================================================================================================
+._ibg {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+body.ie {
+	._ibg {
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	._ibg img {
+		width: 0;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+//====================================================================================================
+._video {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	padding-bottom: 56.25%;
+	video,
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+.videobg {
+	video,
+	iframe,
+	object,
+	embed {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		transform: translateX(-50%) translateY(-50%);
+		background-size: cover;
+	}
+}
+//====================================================================================================
+// ._more-block
+._more-block {
+}
+// ._more-content
+._more-content {
+	transition: all 0.3s ease 0s;
+	overflow: hidden;
+}
+// ._more-item
+._more-item {
+}
+// ._more-link
+._more-link {
+	cursor: pointer;
+	span {
+		font-style: normal;
+		&:first-child {
+			display: block;
+		}
+		&:last-child {
+			display: none;
+		}
+	}
+	&._active {
+		span {
+			font-style: normal;
+			&:first-child {
+				display: none;
+			}
+			&:last-child {
+				display: block;
+			}
+		}
+	}
+}
+//====================================================================================================
+%graystyle {
+	transition: all 0.3s ease 0s;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-o-filter: grayscale(1);
+}
+%graystyleoff {
+	filter: grayscale(0);
+	-webkit-filter: grayscale(0);
+	-moz-filter: grayscale(0);
+	-o-filter: grayscale(0);
+}
+//====================================================================================================
+._swiper {
+	overflow: hidden;
+	//.swiper-wrapper
+	.swiper-wrapper {
+		width: 100%;
+		height: 100%;
+		box-sizing: content-box;
+		display: flex;
+		position: relative;
+	}
+	&.swiper-container-vertical {
+		.swiper-wrapper {
+			flex-direction: column;
+		}
+	}
+	&.swiper-container-autoheight {
+		.swiper-wrapper {
+			align-items: flex-start;
+		}
+	}
+}
+.swiper-container-initialized {
+	.swiper-slide {
+		flex-shrink: 0;
+		// transition-property: transform;
+	}
+}
+.swiper-container-android {
+	.swiper-slide,
+	.swiper-wrapper {
+		transform: translate3d(0px, 0, 0);
+	}
+}
+.swiper-button-lock {
+	display: none !important;
+}
+//====================================================================================================
+._tabs {
+}
+._tabs-item {
+}
+._tabs-block {
+	display: none;
+	&._active {
+		display: block;
+	}
+}
+//=====================================================================================================================
+.mirror {
+	transform: scale(-1, 1);
+}
+//=====================================================================================================================
+.nicescroll-rails {
+	z-index: 1000 !important;
+}
+//========================================================================================================================================================
+
+//========================================================================================================================================================
+._custom-scroll {
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 3px;
+	height: 100%;
+	z-index: 1000;
+	//background-color: rgba(0, 0, 0, 0.1);
+	&__line {
+		background-color: rgba(0, 0, 0, 0.5);
+		border-radius: 3px 0 0 3px;
+		position: relative;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+//</ГОТОВЫЕ КЛАССЫ>====================================================================================================
+
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "datepicker";
+//@import "lightgallery";
+//@import "pagging";
+@import "./components/Header/header.scss";
+@import "./components/Footer/footer.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.page {
+	flex: 1 1 auto;
+}
+//===================================================================================================================================
+.input-text { 
+	width: 100%;
+	display: block;
+	color: rgba(51, 51, 51, 0.60);
+	font-family: Roboto;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-transform: capitalize;
+	position: relative;
+	.showvalue {
+		position: absolute;
+		right: 0px;
+		padding-right: 16px;
+		bottom: 0px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.input { 
+		width: 100%;
+		height: 50px;
+		padding: 0 20px;
+		margin-top: 12px;
+		border-radius: 3px;
+		border: 1px solid #EDEDED;
+		background: #FCFCFC;
+		font-family: Roboto;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		text-transform: none!important;
+		outline: none;
+		&::placeholder {
+			color: rgba(51, 51, 51, 0.70);
+		}
+
+		&.textarea {
+			height: 120px;
+			padding: 16px 20px;
+			resize: none;
+		}
+
+		&.p {
+			color: rgba(51, 51, 51, 0.90);;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+		} 
+	}
+}
+
+.checkbox { 
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+	input { 
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		opacity: 0;
+		z-index: 2;
+		cursor: pointer;
+	}
+
+	span { 
+		width: 22px;
+		height: 22px;
+		min-width: 22px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		border: 1px solid #EDEDED;
+		background: #FFF;
+		transition: all 0.5s;
+		&::before {
+			content: "";
+			width: 12px;
+			height: 12px;
+			position: relative;
+			border-radius: 50%;
+			background: #0C96D1;
+			opacity: 0;
+			transition: all 0.5s;
+		}
+	}
+
+	input:checked ~ span {
+		border-color: #0C96D1;
+		&::before {
+			opacity: 1;
+		}
+	}
+
+	p { 
+		color: #333;
+		font-family: Roboto;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 110%; /* 19.8px */
+		letter-spacing: 0.18px;
+	}
+}
+
+.input-btn { 
+	width: 100%;
+	display: block;
+	.input { 
+		width: 100%;
+		height: 46px;
+		border-radius: 5px;
+		background: #0C96D1;
+		color: #FFF;
+		font-family: Roboto;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		cursor: pointer;
+		outline: none;
+		border: unset;
+		text-transform: none !important;
+	}
+}
+
+$md1: 1300px;
+$md2: 1024px;
+$md3: 768px;
+$md4: 520px;
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+@import "./components/CategoryItem/style.scss";
+@import "./components/ProductItem/style.scss";
+@import "./components/Advertising/style.scss";
+@import "./components/Main/style.scss";
+@import "./components/TopCategory/style.scss";
+@import "./components/Products/style.scss";
+@import "./components/Banner/style.scss";
+@import "./components/Advantage/style.scss";
+@import "./components/RequestProduct/style.scss";
+@import "./components/BuyingUp/style.scss";
+@import "./components/Brands/style.scss";
+@import "./components/TopBrend/style.scss";
+@import "./components/NewsItem/style.scss";
+@import "./components/HomeNews/style.scss";
+@import "./components/Faq/style.scss";
+@import "./components/Catalog/style.scss";
+@import "./components/Brendcrumbs/style.scss";
+@import "./components/CatalogBanner/style.scss";
+@import "./components/CatalogSingle/style.scss";
+@import "./components/CatalogAbaut/style.scss";
+@import "./components/ProductSingle/style.scss";
+@import "./components/Liked/style.scss";
+@import "./components/Comparison/style.scss";
+@import "./components/Basket/style.scss";
+@import "./components/BasketTable/style.scss";
+@import "./components/Checkout/style.scss";
+@import "./components/MyRoom/style.scss";
+@import "./components/MyRoomMenu/style.scss";
+@import "./components/Pagination/style.scss";
+@import "./components/OrderStory/style.scss";
+@import "./components/OrderStoryTable/style.scss";
+@import "./components/OrderSingle/style.scss";
+@import "./components/ResetPass/style.scss";
+@import "./components/BrandsPage/style.scss";
+@import "./components/AbautBanner/style.scss";
+@import "./components/AbautPage/style.scss";
+@import "./components/Contacts/style.scss";
+@import "./components/Callback/style.scss";
+@import "./components/Login/style.scss";
+@import "./components/FilterItem/style.scss";
+@import "./components/Loader/style.scss";
+@import "./components/Registration/style.scss";
+@import "./components/News/style.scss";
+@import "./components/Brandsingle/style.scss";
+@import "./components/CallbackModal/style.scss";
+@import "./components/Sale/style.scss";
+@import "./components/ApplicationModal/style.scss";
+@import "./components/Videos/style.scss";
+@import "./components/VideosPage/style.scss";
+@import "./components/NewsSingl/style.scss";
+@import "./components/InformationPage/style.scss";
+@import "./components/Subscribe/style.scss";

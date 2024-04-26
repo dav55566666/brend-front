@@ -1,0 +1,82 @@
+.registration {
+    width: 100%;
+    padding: 20px 20px 60px;
+
+    .registration__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+
+        .registration__img {
+            width: 100%;
+            max-width: 658px;
+
+            @media(max-width: $md3) {
+                display: none;
+            }
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .registration__right {
+            width: 100%;
+            max-width: 582px;
+
+            @media(max-width: $md3) {
+                max-width: unset;
+            }
+
+            h1 {
+                margin-bottom: 20px;
+                color: #333;
+                font-family: Roboto;
+                font-size: 28px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 120%;
+                /* 33.6px */
+                letter-spacing: 0.56px;
+                text-transform: capitalize;
+            }
+
+            .registration__form {
+                width: 100%;
+
+                .error-message {
+                    color: #EF3442;
+                    font-family: Roboto;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    margin-bottom: 20px;
+                    a {
+                        color: #333;
+                        text-decoration: underline;
+                    }
+                }
+
+                .input-text {
+                    margin-bottom: 20px;
+
+                    input {
+                        text-transform: none !important;
+                    }
+                }
+
+                .flex {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    gap: 18px;
+                }
+            }
+        }
+    }
+}

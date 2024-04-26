@@ -1,0 +1,24 @@
+.videos {
+    width: 100%;
+    padding: 40px 20px;
+    .videos__container {
+        .section-title {
+            margin-bottom: 30px;
+        }
+        .videos__swiper {
+            .swiper-slide {
+                max-width: 314px;
+                margin-right: 16px;
+                .videos__item {
+                    width: 100%;
+                    iframe {
+                        width: 100%;
+                        border: unset!important;
+                        height: 236px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

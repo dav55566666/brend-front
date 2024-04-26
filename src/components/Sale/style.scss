@@ -1,0 +1,39 @@
+.sale {
+  width: 100%;
+  padding: 40px 20px 60px;
+
+  .sale__container {
+    h1 {
+      color: #333;
+      font-family: Roboto;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 131.25%;
+      /* 36.75px */
+      letter-spacing: 0.84px;
+      max-width: 426px;
+      margin-bottom: 36px;
+    }
+
+    .sale__grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 20px;
+
+      @media(max-width: $md1) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @media(max-width: $md2) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media(max-width: $md3) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 16px;
+      }
+    }
+  }
+}

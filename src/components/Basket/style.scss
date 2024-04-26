@@ -1,0 +1,120 @@
+.basket { 
+    width: 100%;
+    padding: 20px 20px 60px;
+	.basket__container { 
+        .basket__empty {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 32px;
+            p {
+                color: #333;
+                font-family: Roboto;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%; /* 26.4px */
+                letter-spacing: 0.44px;
+            }
+
+            a {
+                width: 100%;
+                max-width: 282px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                font-family: Roboto;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: 0.16px;
+                border-radius: 10px;
+                color: #FFF;
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                background: #0C96D1;
+            }
+        }
+		h1 { 
+            color: #333;
+            font-family: Roboto;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%; /* 33.6px */
+            letter-spacing: 0.56px;
+            margin-bottom: 36px;
+		}
+		.basket__total { 
+            width: 100%;
+            margin-bottom: 40px;
+			p { 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 70px;
+                border-radius: 10px;
+                border: 1px solid #DADADA;
+                background: rgba(217, 217, 217, 0.00);
+                gap: 14px;
+                color: #333;
+                font-family: Roboto;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+				span { 
+                    color: #333;
+                    font-family: Roboto;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    text-transform: capitalize;
+				}
+			}
+		}
+
+		.basket__buttons { 
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            @media(max-width: $md3) {
+                flex-direction: column;
+            }
+			a { 
+                width: 100%;
+                max-width: 282px;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                font-family: Roboto;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                letter-spacing: 0.16px;
+                border-radius: 10px;
+				&:first-child {
+                    border: 1px solid #DADADA;
+                    background: #FCFCFC;
+                    color: #333;
+                }
+                &:last-child {
+                    color: #FFF;
+                    border: 1px solid rgba(0, 0, 0, 0.08);
+                    background: #0C96D1;
+                }
+			}
+		}
+	}
+}
