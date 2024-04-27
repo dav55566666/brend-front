@@ -107,7 +107,8 @@ const categorySlice = createSlice({
                     ...payload.brands?.map(el => ({
                         ...el,
                         value: el.title,
-                        toggle: false 
+                        id: el.id,
+                        toggle: false
                     }))
                 ]
                 state.categoryFiltersData = [

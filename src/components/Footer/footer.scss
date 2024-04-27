@@ -135,6 +135,19 @@
                         width: 100%;
 						li { 
                             margin-bottom: 14px;
+                          display: flex;
+                          justify-content: flex-start;
+                          align-items: center;
+                          gap: 10px;
+                          color: #333;
+                          font-family: Roboto;
+                          font-size: 16px;
+                          font-style: normal;
+                          font-weight: 400;
+                          line-height: normal;
+                          svg {
+                            min-width: 26px;
+                          }
                             &:last-child {
                                 margin-bottom: 0;
                             }

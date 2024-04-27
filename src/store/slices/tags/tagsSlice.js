@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchSortTags, fetchTags } from "./tagsApi"
 
 const title = (title) => {
-    return title === "akcii-i-specpredlozheniya" ? "Акции" : title === "novye-postupleniya-uvidet-pervym" ? "Новинки" : "Бестселлеры"
+    return title === "akcii-i-specpredlozheniya" ? "Акции" : title === "novye-postupleniya-uvidet-pervym" ? "Новинки" : "Товары недели"
 }
 
 const tagsSlice = createSlice({

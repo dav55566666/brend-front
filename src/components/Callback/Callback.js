@@ -45,7 +45,7 @@ function Callback() {
                     </div>
                 </div>
             </section>
-            {toggleSuccses && <SuccsesModal title={"Ваш запрос приянт!"} succsesClick={toggleSuccsesHandler} />}
+            {toggleSuccses && <SuccsesModal title={"Ваш запрос принят!"} succsesClick={toggleSuccsesHandler} />}
         </>
     )
 }

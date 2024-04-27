@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 export default function CatalogSinglePage() {
     const router = useRouter();
     const { slug } = router.query;
-    useEffect(() => {}, [slug])
+  //  useEffect(() => {}, [slug])
     return (
         <>
             <Suspense >

@@ -44,7 +44,7 @@ function Brands() {
                         {
                             brandsData.map(el => (
                                 <SwiperSlide key={el.id} className="swiper-slide">
-                                    <Link href={`/brandsingle/${el.slug}`} onClick={() => window.scrollTo(0, 0)}>
+                                    <Link href={`/brandSingle/${el.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                         <BrandsItem id={el.id} title={el.title} img={"https://back.brend-instrument.ru" + el.image} onClick={() => fetchSinglBrend(el.id)} />
                                     </Link>
                                 </SwiperSlide>

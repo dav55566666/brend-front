@@ -12,6 +12,7 @@ function CatalogTags(filterData) {
     const {singleCategoryData, prices} = useSelector(selectCategory)
     const dispatch = useDispatch()
     const [getTags, setGetTags] = useState(false)
+    const [value, setValue] = useState(false)
 
     useEffect(() => {
         if(!getTags) {
@@ -22,7 +23,6 @@ function CatalogTags(filterData) {
 
     const toggleTag = useCallback((e, id) => {
         dispatch(toggleSortTags({id: id, active: e.target.checked}))
-        console.log(prices);
         dispatch(fetchSortCategory({id, filterData: [...filterData.filterData, {9999: [...prices]}], categoryId: singleCategoryData.id, limit: 20 }))
     }, [sortTagsData,filterData,prices])
 
@@ -31,7 +31,16 @@ function CatalogTags(filterData) {
             {
                 sortTagsData?.map(el => (
                     <label key={el.id} className="checkbox">
-                        <input type="checkbox" onClick={(e) => toggleTag(e, el.id)} checked={el.toggle} />
+                        <input type="checkbox" onClick={(e) =>{
+
+                          if(e.target.checked){
+                              toggleTag(e, el.id)
+                          }else{
+                              toggleTag(e, '')
+                          }
+
+                        }
+                        } checked={el.toggle}  />
                         <span />
                         <p>{el.name}</p>
                     </label>

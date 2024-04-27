@@ -53,19 +53,24 @@ function Footer() {
                                 <h4>Контакты</h4>
                                 <ul>
                                     <li>
-                                        <Link href="#"> {/*<LocateIcon />*/} {contactsData?.address}</Link>
+                                        {contactsData?.address}
+                                        {/*<Link href="#"> /!*<LocateIcon />*!/ {contactsData?.address}</Link>*/}
                                     </li>
                                     <li>
-                                        <a href={`tel:${contactsData?.phone_1}`}>{/*<PhoneIcon />*/} {contactsData?.phone_1}</a>
+                                        {contactsData?.phone_1}
+                                        {/*<a href={`tel:${contactsData?.phone_1}`}>/!*<PhoneIcon />*!/</a>*/}
                                     </li>
                                     <li>
-                                        <a href={`tel:${contactsData?.phone_2}`}>{/*<PhoneIcon />*/} {contactsData?.phone_2}</a>
+                                        {contactsData?.phone_2}
+                                        {/*<a href={`tel:${contactsData?.phone_2}`}>/!*<PhoneIcon />*!/ {contactsData?.phone_2}</a>*/}
                                     </li>
                                     <li>
-                                        <a href={`tel:${contactsData?.phone_3}`}>{/*<PhoneIcon />*/} {contactsData?.phone_3}</a>
+                                        {contactsData?.phone_3}
+                                        {/*<a href={`tel:${contactsData?.phone_3}`}>/!*<PhoneIcon />*!/ {contactsData?.phone_3}</a>*/}
                                     </li>
                                     <li>
-                                        <a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up}`}>{/*<WpIcon />*/} {contactsData?.whats_up}</a>
+                                        {contactsData?.whats_up}
+                                        {/*<a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up}`}>/!*<WpIcon />*!/ {contactsData?.whats_up}</a>*/}
                                     </li>
                                 </ul>
                             </div>
@@ -75,7 +80,7 @@ function Footer() {
                                 <li><Link href="/delivery">Доставка и оплата</Link></li>
                                     <li><Link href="/payment">Продажа и оплата</Link></li>
                                     <li><Link href="/buyInstrument">Скупка инструмента</Link></li>
-                                    {/* <li><Link href="/">Условия Сотрудничества</Link></li> */}
+                                     <li><Link href="/terms-of-cooperation">Условия Сотрудничества</Link></li>
                                 </ul>
                             </div>
                             <div className="footer__item">
@@ -118,14 +123,14 @@ function Footer() {
                     <div className="footer__container _container">
                         <p>© 2024 БРЕНД ИНСТРУМЕНТ</p>
                         <ul>
-                            <li><Link href="/">Пользовательское соглашение </Link></li>
+                            <li><Link href="/terms-of-use">Пользовательское соглашение </Link></li>
                             <li><Link href="/">Карта сайта</Link></li>
-                            <li><Link href="/">Политика конфиденциальности</Link></li>
+                            <li><Link href="/privacy-policy">Политика конфиденциальности</Link></li>
                         </ul>
                     </div>
                 </div>
             </footer>
-            {toggleSuccses && <SuccsesModal title={"Ваш запрос приянт!"} succsesClick={toggleSuccsesHandler} />}
+            {toggleSuccses && <SuccsesModal title={"Ваш запрос принят!"} succsesClick={toggleSuccsesHandler} />}
         </>
 
     )

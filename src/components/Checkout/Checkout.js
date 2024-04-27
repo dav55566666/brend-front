@@ -57,6 +57,10 @@ function Checkout() {
     const succesHandler = useCallback(() => {
         setToggleSucces(false)
     },[])
+
+    const styleLink ={
+        textDecoration:"underline"
+    }
     return (
         <>
             <section className="checkout">
@@ -65,7 +69,7 @@ function Checkout() {
                     {
                         preOrder.toggle && (
                             <div className='checkout__important'>
-                                <p>!Забронируйте инструмент заранее, и мы отложим их специально для вас! Бронь будет действительна в течение 24 часов.</p>
+                                <p>Забронируйте инструмент заранее, и мы отложим их специально для вас! Бронь будет действительна в течение 24 часов.</p>
                             </div>
                         )
                     }
@@ -306,16 +310,16 @@ function Checkout() {
                                             </svg>
                                             <p>Способ оплаты</p>
                                         </div>
-                                        {!preOrder.toggle ? <label className="checkbox" onClick={() => setPayment(true)}>
+                                        <label className="checkbox" onClick={() => setPayment(true)}>
                                             <input type="checkbox" checked={payment ? true : false} />
                                             <span />
                                             <p>Наличными при получении</p>
-                                        </label> : ""}
-                                        <label className="checkbox" onClick={() => setPayment(false)}>
-                                            <input type="checkbox" checked={payment ? false : true} />
-                                            <span />
-                                            <p>Робокасса</p>
                                         </label>
+                                        {!preOrder.toggle && <label className="checkbox" onClick={() => setPayment(false)}>
+                                            <input type="checkbox" checked={payment ? false : true}/>
+                                            <span/>
+                                            <p>Робокасса</p>
+                                        </label>}
                                     </div>
                                 </div>
                             </div>
@@ -402,7 +406,7 @@ function Checkout() {
                                     </p>
                                 </div>
                                 <label className="input-btn">
-                                    <input type="submit" defaultValue="Оформить заказ" className="input" />
+                                    <input type="submit" value={ preOrder.toggle ? 'Забронировать' :'Оформить заказ'} defaultValue="Оформить заказ" className="input" />
                                 </label>
                             </div>
                         </Form>
@@ -410,7 +414,13 @@ function Checkout() {
                     </Formik>
                 </div>
             </section>
-            {toggleSucces && <SuccsesModal succsesClick={succesHandler} title={"Ваш заказ принят!"} />}
+
+            {toggleSucces && <SuccsesModal
+                succsesClick={succesHandler}
+                html={true}
+                time={4000}
+                title={'Ваш заказ принят! История заказа находится в <Link  href="/orders/"><a href="">Личном кабинете</a></Link> . Для просмотра истории, перейдите по ссылке История заказов. Если у Вас возникли вопросы, пожалуйста свяжитесь с нами. Спасибо за покупки в нашем интернет-магазине!'}
+            />}
         </>
 
     )

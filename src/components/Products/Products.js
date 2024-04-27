@@ -19,6 +19,7 @@ function Products({idx, fetch}) {
             }
         }
     }, [tagsData])
+    console.log(tagsData,'tagsDatatagsData')
     return (
         <>
             {   tagsData.length ?

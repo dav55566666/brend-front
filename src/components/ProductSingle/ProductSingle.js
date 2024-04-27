@@ -66,7 +66,7 @@ function ProductSingle({ slug }) {
         if (type === "-" && singlProductData?.count > 1) {
             dispatch(counter({ type: "-" }))
         }
-        if (type === "+") {
+        if (type === "+" && singlProductData.quantity-1 >= singlProductData.count) {
             dispatch(counter({ type: "+" }))
         }
     }
@@ -117,6 +117,8 @@ function ProductSingle({ slug }) {
                                 <h1>{singlProductData?.title}</h1>
                                 <div className="produc-single__flex">
                                     <div className="product-single__img">
+                                        {singlProductData.special_price > 0 && <div
+                                            className="discount_div">- {(100 - (singlProductData.special_price * 100) / singlProductData.price)} %</div>}
                                         <Swiper className="produc-single__swiper"
                                             loop={true}
                                             spaceBetween={10}
@@ -188,10 +190,10 @@ function ProductSingle({ slug }) {
                                                 </span>
 
                                                 <p>Бренд:
-                                                    <Link href={`/brandsingle/${singlProductData.brand_id.label}`}> {singlProductData?.brand_id.name}</Link>
+                                                    <Link href={`/brandSingle/${singlProductData.brand_id.label}`}> {singlProductData?.brand_id.name}</Link>
                                                 </p>
-                                                <p>Состояние:
-                                                    <a href="#"> {singlProductData?.attributes[0]?.value}</a>
+                                                <p>Состояние: {singlProductData?.attributes[0]?.value}
+
                                                 </p>
                                             </div>
                                             <div className="product-buttons">
@@ -234,7 +236,7 @@ function ProductSingle({ slug }) {
                                                 </h4>
                                                 <ul>
                                                     <li><Link href={"/delivery"}>Транспортной компанией</Link></li>
-                                                    <li><a href="#">Есть на складе {singlProductData?.quantity} шт.</a></li>
+                                                    {/*<li><a href="#">Есть на складе {singlProductData?.quantity} шт.</a></li>*/}
                                                 </ul>
                                             </div>
                                         </div>
@@ -268,7 +270,7 @@ function ProductSingle({ slug }) {
                         </section >
                     </> : <Loader />
             }
-            {appModal === "create" ? <ApplicationModal {...{ appModal, setAppModal }} /> : appModal === "succes" ? <SuccsesModal succsesClick={toggleModals} title={"Ваш запрос приянт!"} /> : ""}
+            {appModal === "create" ? <ApplicationModal {...{ appModal, setAppModal }} /> : appModal === "succes" ? <SuccsesModal succsesClick={toggleModals} title={"Ваш запрос принят!"} /> : ""}
         </>
 
     )

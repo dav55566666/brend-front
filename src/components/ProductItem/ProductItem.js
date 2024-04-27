@@ -41,6 +41,8 @@ function ProductItem({ title, img, price, salePrice, id, slug }) {
             
             <div className="product-item">
                 <Link href={`/product/${slug}`} style={{backgroundImage: img && "url("+img+")"}} className="product-item__img" onClick={() => {dispatch(fetchSingleProduct({ slug }))}} scroll={false}>
+                    {salePrice > 0 && <div
+                        className="discount_div">- {(100 - (salePrice * 100) / price)} %</div>}
                     <img src={img} alt={title} />
                 </Link>
                 <div className="product-item__text">

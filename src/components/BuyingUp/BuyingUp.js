@@ -28,12 +28,12 @@ function BuyingUp() {
                         </div>
                         <p>Работаем с 2010 года</p>
                     </div>
-                    <div className="buying-up__item">
-                        <div className="icon">
-                            <ChekIcon />
-                        </div>
-                        <p>Возможно выкупить товар</p>
-                    </div>
+                    {/*<div className="buying-up__item">*/}
+                    {/*    <div className="icon">*/}
+                    {/*        <ChekIcon />*/}
+                    {/*    </div>*/}
+                    {/*    <p>Возможно выкупить товар</p>*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </section>

@@ -24,7 +24,7 @@ function RequestProduct() {
                 modalToggle === "callback" ? <CallbackModal succsesClick={toggleClick} /> : <></>
             }
             {
-                modalToggle === "succes" ? <SuccsesModal succsesClick={toggleClick} title={"Ваш запрос приянт!"} /> : <></>
+                modalToggle === "succes" ? <SuccsesModal succsesClick={toggleClick} title={"Ваш запрос принят!"} /> : <></>
             }
         </>
     )

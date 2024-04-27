@@ -42,7 +42,15 @@
             .product-single__img {
                 width: 100%;
                 max-width: 518px;
-
+                .discount_div {
+                    position: relative;
+                    top: 35px;
+                    z-index: 5;
+                    background: red;
+                    width: 55px;
+                    padding: 5px;
+                    color: white;
+                }
                 @media(max-width: $md2) {
                     max-width: 380px;
                 }

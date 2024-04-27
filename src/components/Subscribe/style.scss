@@ -32,5 +32,11 @@
             line-height: normal;
             margin: 0 auto;
         }
+        h2 {
+            @media(max-width: $md2) {
+                font-size: 25px;
+            }
+        }
+
     }
 }

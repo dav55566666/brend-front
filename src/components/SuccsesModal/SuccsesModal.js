@@ -1,16 +1,16 @@
 "use client"
 import React, { useEffect } from 'react'
 
-function SuccsesModal({succsesClick, title}) {
+function SuccsesModal({succsesClick, title, time = 2000, html = false}) {
     useEffect(() => {
         setTimeout(() => {
             succsesClick(null)
-        }, 2000);
+        }, time);
     }, [])
     return (
         <div className='succses-modal'>
             <div className='succes-modal__container'>
-                <p>{title}</p>
+                {html ? <p dangerouslySetInnerHTML={{__html:title}}></p> : title}
             </div>
         </div>
     )

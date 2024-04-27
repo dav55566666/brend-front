@@ -57,8 +57,8 @@ function Login() {
                                 <p>Запомнить меня</p>
                             </label>
                         </div>
-                        <label className="input-btn"><input type="submit" defaultValue="Войти" className="input" /></label>
-                        <Link href="/registration/" className="reg-link">Создать аккаунт</Link>
+                        <label className="input-btn"><input type="submit" defaultValue="Войти" className="input" value={'Войти'} /></label>
+                        <Link href="/registration/" className="reg-link">Регистрация</Link>
                     </form>
                 </div>
             </div>

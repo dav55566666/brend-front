@@ -28,7 +28,7 @@ function MainBrands() {
         {
           brandsData?.map(brend => (
             <SwiperSlide key={brend.id}>
-              <Link href={`/brandsingle/${brend.slug}`}>{brend.title}</Link>
+              <Link href={`/brandSingle/${brend.slug}`}>{brend.title}</Link>
             </SwiperSlide>
           ))
         }

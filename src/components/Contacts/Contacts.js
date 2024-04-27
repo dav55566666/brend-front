@@ -17,7 +17,8 @@ function Contacts() {
                             <LocateIcon />
                         </div> */}
                         <div className="text">
-                            <Link href="#">{contactsData?.address}</Link>
+                            {contactsData?.address}
+                            {/*<Link href="#">{contactsData?.address}</Link>*/}
                         </div>
                     </div>
                     <div className="contacts__item">
@@ -25,9 +26,12 @@ function Contacts() {
                             <PhoneIcon />
                         </div> */}
                         <div className="text">
-                            <a href={`tel:${contactsData?.phone_1}`}>{contactsData?.phone_1}</a>
-                            <a href={`tel:${contactsData?.phone_2}`}>{contactsData?.phone_2}</a>
-                            <a href={`tel:${contactsData?.phone_3}`}>{contactsData?.phone_3}</a>
+                            {contactsData?.phone_1}
+                            {contactsData?.phone_2}
+                            {contactsData?.phone_3}
+                            {/*<a href={`tel:${contactsData?.phone_1}`}>{contactsData?.phone_1}</a>*/}
+                            {/*<a href={`tel:${contactsData?.phone_2}`}>{contactsData?.phone_2}</a>*/}
+                            {/*<a href={`tel:${contactsData?.phone_3}`}>{contactsData?.phone_3}</a>*/}
                         </div>
                     </div>
                     <div className="contacts__item">
@@ -35,7 +39,8 @@ function Contacts() {
                             <WpIcon />
                         </div> */}
                         <div className="text">
-                            <a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up}`}>{contactsData?.whats_up}</a>
+                            {contactsData?.whats_up}
+                            {/*<a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up}`}>{contactsData?.whats_up}</a>*/}
                         </div>
                     </div>
                     <div className="contacts__item">
@@ -43,8 +48,10 @@ function Contacts() {
                             <CallBackMailIcon />
                         </div> */}
                         <div className="text">
-                            <a href={`mailto:${contactsData?.email_1}`} >{contactsData?.email_1}</a>
-                            <a href={`mailto:${contactsData?.email_2}`} >{contactsData?.email_2}</a>
+                            {contactsData?.email_1}
+                            {contactsData?.email_2}
+                            {/*<a href={`mailto:${contactsData?.email_1}`} >{contactsData?.email_1}</a>*/}
+                            {/*<a href={`mailto:${contactsData?.email_2}`} >{contactsData?.email_2}</a>*/}
                         </div>
                     </div>
                     <div className="contacts__item">
@@ -60,16 +67,16 @@ function Contacts() {
                     <div className="contacts__callback">
                         <p>Еще можете связаться с нами</p>
                         <div className="contacts__callback-flex">
-                            <a href={contactsData?.contact_telegram}>
+                            <a href={"https://t.me/"+contactsData?.contact_telegram.replace(/[^0-9+]/g, '')}>
                                 <TgIcon />
                             </a>
-                            <a href={contactsData?.contact_skype}>
-                                <SkypeIcon />
-                            </a>
-                            <a href={contactsData?.contact_viber}>
-                                <ViberIcon />
-                            </a>
-                            <a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up}`}>
+                            {/*<a href={contactsData?.contact_skype.length > 0 ?? contactsData?.contact_skype.replace(/[^0-9+]/g, '')}>*/}
+                            {/*    <SkypeIcon />*/}
+                            {/*</a>*/}
+                            {/*<a href={contactsData?.contact_viber.replace(/[^0-9+]/g, '')}>*/}
+                            {/*    <ViberIcon />*/}
+                            {/*</a>*/}
+                            <a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up.replace(/[^0-9+]/g, '')}`}>
                                 <ContactsWpIcon  />
                             </a>
                         </div>
@@ -83,12 +90,12 @@ function Contacts() {
                             <a href={contactsData?.sub_youtube}>
                                 <YoutubeIcon />
                             </a>
-                            <a href={contactsData?.sub_vk}>
-                                <VkIcon />
-                            </a>
-                            <a href={contactsData?.sub_od}>
-                                <OkIcon />
-                            </a>
+                            {/*<a href={contactsData?.sub_vk}>*/}
+                            {/*    <VkIcon />*/}
+                            {/*</a>*/}
+                            {/*<a href={contactsData?.sub_od}>*/}
+                            {/*    <OkIcon />*/}
+                            {/*</a>*/}
                             <a href={contactsData?.sub_x}>
                                 <AssetIcon />
                             </a>

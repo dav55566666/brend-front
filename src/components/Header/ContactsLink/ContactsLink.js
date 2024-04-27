@@ -21,12 +21,11 @@ function ContactsLink() {
 
   return (
     <>
-      <Link href="/">
-        {contactsData?.address}
-      </Link>
-      <a href={`tel:${contactsData?.phone_1}`}>
-        {contactsData?.phone_1}
-      </a>
+      {/*<Link href="/">*/}
+      {/*  {contactsData?.address}*/}
+      {/*</Link>*/}
+      <span>  {contactsData?.address}</span>
+        <span>{contactsData?.phone_1}</span>
     </>
   )
 }

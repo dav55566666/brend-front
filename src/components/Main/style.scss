@@ -2,7 +2,7 @@
     width: 100%;
     padding: 18px 20px 50px;
 	margin-top: 200px;
-	@media(max-width: $md2) {margin-top: 80px;}
+	@media(max-width: $md2) {margin-top:0;}
 	.main__container { 
         display: flex;
         justify-content: space-between;

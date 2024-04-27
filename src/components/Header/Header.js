@@ -19,6 +19,7 @@ function Header() {
     const [headerToggles, setHeaderToggles] = useState(false)
     const [mobileToggle, setMobileToggle] = useState(false)
     const [mobileSearch, setMobileSearch] = useState(false)
+    const [category, setCategory] = useState(false)
 
     const headerToggleClick = useCallback((value) => {
         setHeaderToggles(value)
@@ -36,8 +37,11 @@ function Header() {
                 }
             }
         })
+        if(window.innerWidth < 1025) {
+            setMobileSearch(!mobileSearch)
+        }
     }, [])
-
+   // console.log(mobileToggle,headerToggles,'mobileTogglemobileToggle')
 
     return (
         <header className="header">
@@ -72,7 +76,7 @@ function Header() {
                                     <ul>
                                         <li><Link onClick={() => setHeaderToggles(null)} href="/payment">Продажа и оплата</Link></li>
                                         <li><Link onClick={() => setHeaderToggles(null)} href="/buyInstrument">Скупка инструмента</Link></li>
-                                        {/* <li><Link onClick={() => setHeaderToggles(null)} href="/">Условия Сотрудничества</Link></li> */}
+                                         <li><Link onClick={() => setHeaderToggles(null)} href="/terms-of-cooperation">Условия Сотрудничества</Link></li>
                                     </ul>
                                 </div>
                             }
@@ -126,6 +130,7 @@ function Header() {
                     </div>
                 </div>
             </div>
+
             {
                 headerToggles === "succes" && (
                     <SuccsesModal succsesClick={headerToggleClick} title={"Ваш запрос принят!"} />

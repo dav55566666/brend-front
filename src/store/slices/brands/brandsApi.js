@@ -20,7 +20,7 @@ export const fetchSingleBrend = createAsyncThunk(
 export const fetchBrandsByName = createAsyncThunk(
     "brands/fetchBrandsByName",
     async function ({name}) {
-        const {data: brandsByNameData} = await axios.get(`https://back.brend-instrument.ru/api/get-single-brands-name?name=${name}`)
+        const {data: brandsByNameData} = await axios.get(`https://back.brend-instrument.ru/api/get-single-brands-name?name=${name}`, {headers: {"Content-Type": "application/json"}})
         return brandsByNameData
     }
 )

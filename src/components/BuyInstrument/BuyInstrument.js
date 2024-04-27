@@ -21,17 +21,17 @@ function BuyInstrument() {
                     <p>Все интересующие Вас вопросы касаемо закупки можете задавать по телефонам +7(499)755-54-64, (925)190-76-60, или посылать на почту brendinstrument@mail.ru. Мы с удовольствием примем Ваши предложения, рассмотрим всевозможные варианты и обязательно найдём выгодные условия для обеих сторон.</p>
                 </div>
                 <div className="information-page__contacts">
-                    <a href={contactsData?.contact_telegram}>
+                    <a href={"https://t.me/"+contactsData?.contact_telegram.replace(/[^0-9+]/g, '')}>
                         <TgIcon />
                     </a>
-                    <a href={contactsData?.contact_skype}>
-                        <SkypeIcon />
-                    </a>
-                    <a href={contactsData?.contact_viber}>
-                        <ViberIcon />
-                    </a>
-                    <a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up}`}>
-                        <ContactsWpIcon />
+                    {/*<a href={contactsData?.contact_skype.length > 0 ?? contactsData?.contact_skype.replace(/[^0-9+]/g, '')}>*/}
+                    {/*    <SkypeIcon />*/}
+                    {/*</a>*/}
+                    {/*<a href={contactsData?.contact_viber.replace(/[^0-9+]/g, '')}>*/}
+                    {/*    <ViberIcon />*/}
+                    {/*</a>*/}
+                    <a href={`https://api.whatsapp.com/send?phone=${contactsData?.whats_up.replace(/[^0-9+]/g, '')}`}>
+                        <ContactsWpIcon  />
                     </a>
                 </div>
             </div>
